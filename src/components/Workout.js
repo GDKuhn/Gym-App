@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Folders(props) {
+export default function Workout() {
 	return (
-		<div className="page">
+		<div>
 			<Link to="/Home">Home</Link>
-			<h1>Folders</h1>
+			<h1>Workout Name</h1>
+			<Exercise></Exercise>
 		</div>
 	);
 }
