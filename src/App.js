@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { legacy_createStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import Login from "./pages/Login";
+import LoginForm from "./pages/Login/LoginForm";
 import Home from "./pages/Home";
 import WorkoutHistory from "./pages/WorkoutHistory";
 import StartWorkout from "./pages/StartWorkout";
@@ -22,7 +22,7 @@ function App() {
 			<BrowserRouter>
 				<div className="App">
 					<Routes>
-						<Route path="/" element={<Login />} />
+						<Route path="/" element={<LoginForm />} />
 						<Route path="/Negado" element={<Negado />} />
 						<Route element={<PrivateRoutes />}>
 							<Route path="/Home" element={<Home />} />
