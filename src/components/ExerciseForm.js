@@ -45,15 +45,53 @@ export default function ExerciseForm(props) {
 			load: "",
 		});
 	}
+	function addUser(event) {
+		event.preventDefault();
+		props.onAddUser(inputs);
+	}
+	function addExerciseTest(event) {
+		event.preventDefault();
+		props.onAddExerciseTest(inputs);
+	}
 
 	//FORM INTEFACE
 	return (
 		<form className="inputsForm">
-			<input id="exerciseName" className="exerciseInput" type="text" placeholder="EXERCISE" value={inputs.name} onChange={setNameInput} />
-			<input id="exerciseSets" className="exerciseInput" type="number" placeholder="SETS" value={inputs.sets} onChange={setSetsInput} />
-			<input id="exerciseReps" className="exerciseInput" type="number" placeholder="REPS" value={inputs.reps} onChange={setRepsInput} />
-			<input id="exerciseLoad" className="exerciseInput" type="number" placeholder="Kg" value={inputs.load} onChange={setLoadInput} />
+			<input
+				id="exerciseName"
+				className="exerciseInput"
+				type="text"
+				placeholder="EXERCISE"
+				value={inputs.name}
+				onChange={setNameInput}
+			/>
+			<input
+				id="exerciseSets"
+				className="exerciseInput"
+				type="number"
+				placeholder="SETS"
+				value={inputs.sets}
+				onChange={setSetsInput}
+			/>
+			<input
+				id="exerciseReps"
+				className="exerciseInput"
+				type="number"
+				placeholder="REPS"
+				value={inputs.reps}
+				onChange={setRepsInput}
+			/>
+			<input
+				id="exerciseLoad"
+				className="exerciseInput"
+				type="number"
+				placeholder="Kg"
+				value={inputs.load}
+				onChange={setLoadInput}
+			/>
 			<button onClick={addExercise}>Add</button>
+			<button onClick={addUser}>Add User</button>
+			<button onClick={addExerciseTest}>Add Exercise Test</button>
 		</form>
 	);
 }

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginAction, logoutAction } from "../../actions/loginActions";
-import AuthButton from "../../components/Login/AuthButton";
+import { loginAction } from "../../actions/loginActions";
 import "./LoginStyle.css";
 
 function initialState() {
@@ -31,7 +30,7 @@ export default function LoginForm(props) {
 
 		if (username && password === "admin") {
 			dispatch(loginAction());
-			console.log(login);
+			console.log(login.type);
 			navigate("/Home");
 		} else {
 			console.log("Access Denied");
@@ -43,11 +42,9 @@ export default function LoginForm(props) {
 
 	const signInBtn = () => {
 		setisSignInFormActive(true);
-		console.log("test sign in");
 	};
 	const signUpBtn = () => {
 		setisSignInFormActive(false);
-		console.log("test sign up");
 	};
 
 	return (
