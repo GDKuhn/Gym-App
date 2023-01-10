@@ -1,3 +1,11 @@
 .exerciseInput {
 	display: block;
 }
+
+.show {
+	background-color: red;
+}
+.hide {
+	background-color: blue;
+	display: none;
+}
