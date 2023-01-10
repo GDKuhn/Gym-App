@@ -1,37 +1,33 @@
 import React, { useState } from "react";
-
-//
-//SET INPUTS
 export default function ExerciseForm(props) {
-	const [inputs, setInputs] = useState({
-		//
+	//
+	//SET INPUTS
+	const initialState = {
 		id: "",
-		name: "",
+		exe: "",
 		sets: "",
 		reps: "",
 		load: "",
-	});
+	};
+	const [inputs, setInputs] = useState(initialState);
 
+	//
 	//FETCH INPUT VALUES FROM FORM => ADD THEM TO INPUTS
-	function setNameInput() {
-		const exerciseNameInput = document.querySelector("#exerciseName");
-		let exerciseName = exerciseNameInput.value;
-		setInputs({ ...inputs, name: exerciseName });
+	function onChangeName(event) {
+		const { value } = event.target;
+		setInputs({ ...inputs, name: value });
 	}
-	function setSetsInput() {
-		const exerciseSetsInput = document.querySelector("#exerciseSets");
-		let exerciseSets = exerciseSetsInput.value;
-		setInputs({ ...inputs, sets: exerciseSets });
+	function onChangeSets(event) {
+		const { value } = event.target;
+		setInputs({ ...inputs, sets: value });
 	}
-	function setRepsInput() {
-		const exerciseRepsInput = document.querySelector("#exerciseReps");
-		let exerciseReps = exerciseRepsInput.value;
-		setInputs({ ...inputs, reps: exerciseReps });
+	function onChangeReps(event) {
+		const { value } = event.target;
+		setInputs({ ...inputs, reps: value });
 	}
-	function setLoadInput() {
-		const exerciseLoadInput = document.querySelector("#exerciseLoad");
-		let exerciseLoad = exerciseLoadInput.value;
-		setInputs({ ...inputs, load: exerciseLoad });
+	function onChangeLoad(event) {
+		const { value } = event.target;
+		setInputs({ ...inputs, load: value });
 	}
 
 	//PASS INPUTS TO EXERCISE.JS AND RESET VALUES
@@ -55,34 +51,34 @@ export default function ExerciseForm(props) {
 				<input
 					id="exerciseName"
 					className="exerciseInput"
+					name="exe"
 					type="text"
 					placeholder="EXERCISE"
-					value={inputs.name}
-					onChange={setNameInput}
+					onChange={onChangeName}
 				/>
 				<input
 					id="exerciseSets"
 					className="exerciseInput"
+					name="sets"
 					type="number"
 					placeholder="SETS"
-					value={inputs.sets}
-					onChange={setSetsInput}
+					onChange={onChangeSets}
 				/>
 				<input
 					id="exerciseReps"
 					className="exerciseInput"
+					name="reps"
 					type="number"
 					placeholder="REPS"
-					value={inputs.reps}
-					onChange={setRepsInput}
+					onChange={onChangeReps}
 				/>
 				<input
 					id="exerciseLoad"
 					className="exerciseInput"
+					name="load"
 					type="number"
 					placeholder="Kg"
-					value={inputs.load}
-					onChange={setLoadInput}
+					onChange={onChangeLoad}
 				/>
 				{/* <button onClick={addUser}>Add User</button> */}
 				<button onClick={addExercise}>Add Exercise </button>

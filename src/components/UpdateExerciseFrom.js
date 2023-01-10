@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { inputs } from "./ExerciseForm";
 
 function UpdateExerciseFrom(props) {
 	//
 	//SET UPDATED INPUTS
 	const [updatedInputs, setUpdatedInputs] = useState({
-		//
 		name: "",
 		sets: "",
 		reps: "",
@@ -13,6 +11,7 @@ function UpdateExerciseFrom(props) {
 	});
 
 	//FETCH UPDATED INPUT VALUES FROM FORM => ADD THEM TO UPDATEDINPUTS
+
 	function setUpdateNameInput() {
 		const updateExerciseNameInput = document.querySelector(
 			"#updateExerciseName"

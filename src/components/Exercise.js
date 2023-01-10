@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import moment from "moment/moment";
 
 import "../App.css";
@@ -6,25 +6,9 @@ import ExerciseCard from "./ExerciseCard";
 import ExerciseForm from "./ExerciseForm";
 
 import db from "../firebase-config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Exercise() {
-	//
-	//GET EXERCISES FROM EXERCISELOG
-	const [exercises, setExercises] = useState([]);
-
-	useEffect((props) => {
-		const exerciseLogCollectionRef = collection(
-			db,
-			"users/jj6ofOKONYN0CknPD7f7/exerciseLog"
-		);
-		const getExercise = async () => {
-			const data = await getDocs(exerciseLogCollectionRef);
-
-			setExercises(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-		};
-		getExercise();
-	}, []);
 	//
 	//ADD  EXERCISE TO EXERCISELOG COLLECTION
 	const userCollectionRef = collection(
@@ -70,8 +54,7 @@ export default function Exercise() {
 	return (
 		<div>
 			<ExerciseForm onAddUser={onAddUser} onAddExercise={onAddExercise} />
-
-			<ExerciseCard exercises={exercises} />
+			<ExerciseCard />
 		</div>
 	);
 }
